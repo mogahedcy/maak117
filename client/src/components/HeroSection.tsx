@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, ArrowLeft } from 'lucide-react';
-import heroImage from '@assets/generated_images/Hero_logistics_operations_image_ff828626.png';
+import heroImage from '@assets/1762458423_1762463913431.png';
 
 export default function HeroSection() {
   const { t, i18n } = useTranslation();
