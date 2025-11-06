@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { Globe, Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
-import logoImage from '@assets/image_1762463738947.png';
+import logoImage from '@assets/image_1762463831068.png';
 
 export default function Header() {
   const { t, i18n } = useTranslation();
