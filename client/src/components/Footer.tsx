@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import logoImage from '@assets/image_1762463738947.png';
 
 export default function Footer() {
   const { t } = useTranslation();
@@ -16,9 +17,17 @@ export default function Footer() {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           <div>
-            <h3 className="text-lg font-bold mb-3 text-foreground" data-testid="text-footer-company">
-              {t('footer.company')}
-            </h3>
+            <div className="flex items-center gap-3 mb-3">
+              <img 
+                src={logoImage} 
+                alt="A.A.K CORP Logo" 
+                className="h-12 w-auto"
+                data-testid="img-footer-logo"
+              />
+              <h3 className="text-lg font-bold text-foreground" data-testid="text-footer-company">
+                {t('footer.company')}
+              </h3>
+            </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
               {t('footer.description')}
             </p>

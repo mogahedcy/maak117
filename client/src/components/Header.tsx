@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { Globe, Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import logoImage from '@assets/image_1762463738947.png';
 
 export default function Header() {
   const { t, i18n } = useTranslation();
@@ -44,7 +45,13 @@ export default function Header() {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20 gap-4">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
+            <img 
+              src={logoImage} 
+              alt="A.A.K CORP Logo" 
+              className="h-14 w-auto"
+              data-testid="img-logo"
+            />
             <div className="flex flex-col">
               <span className="text-lg font-bold text-foreground leading-tight" data-testid="text-company-name">
                 {isRTL ? 'مؤسسة أحمد عبدالقادر' : 'Ahmed Abdulqader Company'}
