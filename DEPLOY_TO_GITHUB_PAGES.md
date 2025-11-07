@@ -76,13 +76,35 @@ git push
   
   غيّر السطر:
   ```yaml
-  run: npx vite build
+  run: npx vite build --base=/maak117/
   ```
   
   إلى:
   ```yaml
   run: npx vite build --base=/
   ```
+
+### استخدام دومين مخصص (Custom Domain)
+
+إذا كنت تستخدم دومين مخصص (مثل `www.aldeyar.me`):
+
+1. **تأكد من إعدادات DNS**:
+   - أضف `CNAME` record في إعدادات الدومين يشير إلى: `mogahedcy.github.io`
+   - انتظر حتى ينتشر DNS (قد يأخذ 24 ساعة)
+
+2. **التحقق من GitHub Pages**:
+   - اذهب إلى Settings → Pages
+   - في قسم "Custom domain" تأكد أن الدومين مضاف: `www.aldeyar.me`
+   - فعّل "Enforce HTTPS" للأمان
+
+3. **تحديث ملف CNAME في workflow**:
+   - الـ workflow الحالي مضبوط بالفعل لدومين `www.aldeyar.me`
+   - إذا غيّرت الدومين، عدّل السطر التالي في `.github/workflows/deploy.yml`:
+   ```yaml
+   echo "www.aldeyar.me" > _site/CNAME
+   ```
+
+⚠️ **ملاحظة**: عند استخدام custom domain، base path يكون `/` وليس `/maak117/`
 
 ### استكشاف الأخطاء
 
