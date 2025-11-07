@@ -77,6 +77,20 @@ Preferred communication style: Simple, everyday language.
 
 **Note**: Database functionality is not currently utilized by the application. The website is purely informational with no user authentication or dynamic data.
 
+### Deployment Options
+
+**GitHub Pages Deployment**:
+- Configured with GitHub Actions workflow (`.github/workflows/deploy.yml`)
+- Automatic build and deployment on push to `main` branch
+- Static site deployment suitable for this frontend-only website
+- Instructions available in `DEPLOY_TO_GITHUB_PAGES.md`
+- `.nojekyll` file prevents Jekyll processing
+
+**Replit Deployment**:
+- Can be published directly from Replit using the "Publish" button
+- Supports both static and full-stack deployment
+- Provides `.replit.app` domain with optional custom domain support
+
 ### API Design
 
 **API Structure**: RESTful endpoints prefixed with `/api` (prepared but not implemented).
