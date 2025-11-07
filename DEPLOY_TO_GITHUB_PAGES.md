@@ -26,14 +26,17 @@ git push -u origin main
 
 ⚠️ **مهم**: استبدل `اسم_المستخدم` و `اسم_المشروع` باسم حسابك واسم المشروع الذي أنشأته.
 
-### 3️⃣ تفعيل GitHub Pages
+### 3️⃣ تفعيل GitHub Pages (مهم جداً!)
 
 1. اذهب إلى صفحة المشروع على GitHub
 2. اضغط على **Settings** (الإعدادات)
 3. من القائمة الجانبية، اضغط على **Pages**
 4. في قسم "Build and deployment":
-   - **Source**: اختر `GitHub Actions`
+   - **Source**: ⚠️ **يجب** اختيار `GitHub Actions` (وليس "Deploy from a branch")
+   - إذا كان مختاراً "Deploy from a branch"، غيّره إلى `GitHub Actions`
 5. احفظ التغييرات
+
+⚠️ **مهم**: إذا لم تختر `GitHub Actions` سيحدث تعارض وستفشل عملية النشر!
 
 ### 4️⃣ انتظر البناء والنشر
 
@@ -83,7 +86,16 @@ git push
 
 ### استكشاف الأخطاء
 
-إذا لم يعمل الموقع:
+#### ❌ خطأ: "pages build and deployment / build (dynamic) Failing"
+
+هذا يعني أن GitHub Pages يحاول البناء بطريقة خاطئة. **الحل**:
+
+1. اذهب إلى **Settings** → **Pages**
+2. تحقق أن **Source** مضبوط على `GitHub Actions` وليس "Deploy from a branch"
+3. إذا كان مختلفاً، غيّره إلى `GitHub Actions` واحفظ
+4. ادفع تحديث بسيط للمشروع (أي تعديل) لإعادة تشغيل النشر
+
+#### مشاكل أخرى:
 
 1. تحقق من تبويب **Actions** - هل هناك أخطاء؟
 2. تأكد أن GitHub Pages مفعّل في Settings → Pages
