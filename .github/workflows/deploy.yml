@@ -32,7 +32,7 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: npx vite build --base=/
+        run: npx vite build --base=/maak117/
         env:
           NODE_ENV: production
 
@@ -41,7 +41,6 @@ jobs:
           mkdir -p _site
           cp -r dist/public/* _site/
           cp _site/index.html _site/404.html
-          echo "aldeyar.me" > _site/CNAME
           ls -la _site/
 
       - name: Setup Pages
