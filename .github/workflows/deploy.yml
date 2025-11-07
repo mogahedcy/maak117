@@ -36,10 +36,19 @@ jobs:
         env:
           NODE_ENV: production
 
+      - name: Prepare files for deployment
+        run: |
+          mkdir -p _site
+          cp -r dist/public/* _site/
+          ls -la _site/
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist/public
+          path: _site
 
   deploy:
     environment:
