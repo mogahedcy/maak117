@@ -1,0 +1,7 @@
+# robots.txt for https://aldeyar.me
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://aldeyar.me/sitemap.xml

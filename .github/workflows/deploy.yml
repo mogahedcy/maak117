@@ -41,7 +41,7 @@ jobs:
           mkdir -p _site
           cp -r dist/public/* _site/
           cp _site/index.html _site/404.html
-          echo "www.aldeyar.me" > _site/CNAME
+          echo "aldeyar.me" > _site/CNAME
           ls -la _site/
 
       - name: Setup Pages
