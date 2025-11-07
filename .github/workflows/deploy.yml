@@ -35,10 +35,11 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: npx vite build --base=/maak117/
+        run: npx vite build --base=/
         env:
           NODE_ENV: production
-
+      - name: Copy CNAME file
+          run: cp CNAME dist/public/CNAME
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
