@@ -32,7 +32,7 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: npx vite build
+        run: npx vite build --base=/maak117/
         env:
           NODE_ENV: production
 
