@@ -40,6 +40,7 @@ jobs:
         run: |
           mkdir -p _site
           cp -r dist/public/* _site/
+          cp _site/index.html _site/404.html
           ls -la _site/
 
       - name: Setup Pages
