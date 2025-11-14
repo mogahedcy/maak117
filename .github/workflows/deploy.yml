@@ -39,14 +39,14 @@ jobs:
         env:
           NODE_ENV: production
       - name: Copy CNAME file
-        run: cp CNAME dist/CNAME
+        run: cp CNAME dist/public/CNAME
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist'
+          path: './dist/public'
 
       - name: Deploy to GitHub Pages
         id: deployment
