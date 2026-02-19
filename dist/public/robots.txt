@@ -1,7 +1,7 @@
-# robots.txt for https://aldeyar.me
+# robots.txt for https://aak-ye.vercel.app/
 
 User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://aldeyar.me/sitemap.xml
+Sitemap: https://aak-ye.vercel.app/sitemap.xml
