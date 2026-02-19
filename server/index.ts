@@ -1,8 +1,6 @@
 import express, { type Request, Response, NextFunction } from "express";
-import path from "path";
-import { fileURLToPath } from "url";
 import { registerRoutes } from "./routes";
-import { log } from "./vite";
+import { setupVite, serveStatic, log } from "./vite";
 
 const app = express();
 
@@ -59,24 +57,12 @@ app.use((req, res, next) => {
     throw err;
   });
 
-  // Serve static files from public directory
-  const __filename = fileURLToPath(import.meta.url);
-  const __dirname = path.dirname(__filename);
-  const publicPath = path.join(__dirname, "..", "public");
-  app.use(express.static(publicPath));
+  if (app.get("env") === "development") {
+    await setupVite(app, server);
+  } else {
+    serveStatic(app);
+  }
 
-  // Catch-all route to serve index.html (except for API routes)
-  app.get("*", (req, res, next) => {
-    if (req.path.startsWith("/api")) {
-      return next();
-    }
-    res.sendFile(path.join(publicPath, "index.html"));
-  });
-
-  // ALWAYS serve the app on the port specified in the environment variable PORT
-  // Other ports are firewalled. Default to 5000 if not specified.
-  // this serves both the API and the client.
-  // It is the only port that is not firewalled.
   const port = parseInt(process.env.PORT || '5000', 10);
   server.listen({
     port,

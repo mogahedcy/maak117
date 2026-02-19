@@ -1,13 +1,16 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
+import { fileURLToPath } from "url";
+import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 
-// هذا الملف يضبط Vite بحيث يكون root = client ويخرج build في dist في جذر المشروع
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 export default defineConfig({
   plugins: [
     react(),
-    // لو كنت تحتاج بلجنات Replit فقط للتطوير هناك، يمكنك إضافتها هنا بشرط ألا تسبب مشاكل:
-    // runtimeErrorOverlay(),
+    runtimeErrorOverlay(),
   ],
   resolve: {
     alias: {
@@ -18,8 +21,7 @@ export default defineConfig({
   },
   root: path.resolve(__dirname, "client"),
   build: {
-    // Vercel يتوقع مجلد dist في جذر المشروع
-    outDir: path.resolve(__dirname, "dist"),
+    outDir: path.resolve(__dirname, "dist", "public"),
     emptyOutDir: true,
   },
   server: {
