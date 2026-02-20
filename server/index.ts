@@ -57,14 +57,17 @@ app.use((req, res, next) => {
     throw err;
   });
 
+  // Importantly only setup vite in development and after
+  // setting up API routes so they can be caught by the proxy
   if (app.get("env") === "development") {
     await setupVite(app, server);
   } else {
     serveStatic(app);
   }
 
-  const port = parseInt(process.env.PORT || '5000', 10);
-  if (process.env.NODE_ENV !== 'production' || !process.env.VERCEL) {
+  // ALWAYS listen ON ALL INTERFACES in the replit environment
+  const port = parseInt(process.env.PORT || "5000", 10);
+  if (process.env.NODE_ENV !== "production" || !process.env.VERCEL) {
     server.listen({
       port,
       host: "0.0.0.0",
